@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//Components
+import Header from "./components/Header/Header";
+import SelectOption from "./components/SelectOption/SelectOption";
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      score: 0,
+      options: ["icon-rock.svg", "icon-paper.svg", "icon-scissors.svg"]
+    };
+  }
+
+  handleScore = status => {
+    let { score } = this.state;
+    if (status) this.setState({ score: score + 1 });
+  };
+
+  render() {
+    return (
+      <div className="app">
+        <Header handleScore={this.handleScore} score={this.state.score} />
+        <SelectOption options={this.state.options} score={this.handleScore} />
+      </div>
+    );
+  }
 }
 
 export default App;

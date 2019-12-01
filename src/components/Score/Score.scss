@@ -1,0 +1,15 @@
+.score {
+  background: #f2f2f2;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  text-transform: uppercase;
+
+  &__title {
+    font-size: 15px;
+  }
+
+  .btn {
+    font-size: 25px;
+  }
+}
